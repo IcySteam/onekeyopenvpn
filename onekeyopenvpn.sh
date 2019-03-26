@@ -6,6 +6,9 @@
 # 作者：atrandys"
 # 网站：www.atrandys.com"
 # Youtube：atrandys"
+# Forked by: IcySteam"
+# firewalld is no longer disabled/replaced"
+# Manually open port 1194"
 #=========================
 
 #安装epel源
@@ -53,19 +56,9 @@ cp /etc/openvpn/easy-rsa/3.0.3/ta.key /etc/openvpn/client/
 cp /etc/openvpn/easy-rsa/3.0.3/pki/ca.crt /etc/openvpn/client/
 cp /etc/openvpn/easy-rsa/3.0.3/pki/private/client1.key /etc/openvpn/client/
 
-#关闭firewalld
-systemctl stop firewalld
-systemctl disable firewalld
-
-#安装iptables
-yum install -y iptables-services 
-systemctl enable iptables 
-systemctl start iptables 
-
 #清除规则
 iptables -F
 iptables -t nat -A POSTROUTING -s 10.8.0.0/16 ! -d 10.8.0.0/16 -j MASQUERADE
-service iptables save
 
 #启用转发
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -128,6 +121,9 @@ echo " 介绍：适用于CentOS7"
 echo " 作者：atrandys"
 echo " 网站：www.atrandys.com"
 echo " Youtube：atrandys"
+echo " Forked by: IcySteam"
+echo " firewalld is no longer disabled/replaced"
+echo " Manually open port 1194"
 echo "========================="
 read -p "建议重启一下VPS，是否现在重启 ? [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
