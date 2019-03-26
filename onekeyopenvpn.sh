@@ -9,7 +9,7 @@
 # Forked by: IcySteam"
 # Fixed OpenVPN versioning errors"
 # firewalld is no longer disabled/replaced"
-# Manually open port 1194"
+# Manually open port 1194, 9898"
 #=========================
 
 #安装epel源
@@ -125,7 +125,7 @@ echo " Youtube：atrandys"
 echo " Forked by: IcySteam"
 echo " Fixed OpenVPN versioning errors"
 echo " firewalld is no longer disabled/replaced"
-echo " Manually open port 1194"
+echo " Manually open port 1194, 9898"
 echo "========================="
 read -p "建议重启一下VPS，是否现在重启 ? [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
