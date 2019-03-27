@@ -20,7 +20,7 @@ yum -y install epel-release
 sed -i "s/enabled=0/enabled=1/" /etc/yum.repos.d/epel.repo
 
 #安装openvpn
-yum -y install openvpn
+yum -y install openvpn easy-rsa
 
 #复制easy到openvpn
 cp -rf /usr/share/easy-rsa/ /etc/openvpn/easy-rsa
